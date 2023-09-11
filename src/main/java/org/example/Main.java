@@ -19,5 +19,15 @@ public class Main {
                 +":"
                 +now.getSecond()
         );
+        int weeks = 2;
+        System.out.println("=== plus "+weeks+" Wochen ===");
+        LocalDateTime newNow = now.plusWeeks(weeks);
+        System.out.println(newNow);
+        System.out.println(
+                newNow.getDayOfMonth()
+                        +". "
+                        +newNow.getMonth()
+                        +"."
+                        +newNow.getYear());
     }
 }

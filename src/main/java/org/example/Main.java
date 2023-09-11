@@ -68,7 +68,7 @@ public class Main {
         System.out.println("Geburtstag von " + dimSum.getName() + ": " + dimSum.getBirthday().format(formatter));
 
         System.out.println("=== Wie lange bis zum nächsten Geburtstag? ===");
-        long daysfromBirthday = ChronoUnit.DAYS.between(LocalDate.now(), dimSum.getBirthday());
+        long daysFromBirthday = ChronoUnit.DAYS.between(LocalDate.now(), dimSum.getBirthday());
         // Geburtstag in diesem Jahr gewesen?
         if (LocalDate.now().getMonthValue() > dimSum.getBirthday().getMonthValue()) {
 
@@ -86,7 +86,7 @@ public class Main {
         }
         long daysUntilBirthday = ChronoUnit.DAYS.between(LocalDate.now(), dimSum.getBirthday());
         // Alter berechnen
-        long yearsOld = (daysfromBirthday * -1 + daysUntilBirthday) / 365;
+        long yearsOld = (daysFromBirthday * -1 + daysUntilBirthday) / 365;
         System.out.println("Noch \u001B[35m" + daysUntilBirthday + "\u001B[0m Tage bis zum \u001B[31m" + yearsOld + "\u001B[0mten Geburtstag!!!");
 
 

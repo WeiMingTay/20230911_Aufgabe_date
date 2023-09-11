@@ -65,19 +65,29 @@ public class Main {
         System.out.println("=== === Bonus Aufgaben === ===");
         Animal dimSum = new Animal("Dim Sum", LocalDate.of(2016, 4, 1));
 
-        System.out.println(dimSum);
+        System.out.println("Geburtstag von " + dimSum.getName() + ": " + dimSum.getBirthday().format(formatter));
 
         System.out.println("=== Wie lange bis zum nächsten Geburtstag? ===");
+        long daysfromBirthday = ChronoUnit.DAYS.between(LocalDate.now(), dimSum.getBirthday());
         // Geburtstag in diesem Jahr gewesen?
         if (LocalDate.now().getMonthValue() > dimSum.getBirthday().getMonthValue()) {
-            // System.out.println("Birthday already happened");
+
             dimSum.setBirthday(LocalDate.of(LocalDate.now().getYear() + 1, dimSum.getBirthday().getMonth(), dimSum.getBirthday().getDayOfMonth()));
 
+        } else if ((LocalDate.now().getMonthValue() == dimSum.getBirthday().getMonthValue())) {
+            if (LocalDate.now().getDayOfMonth() > dimSum.getBirthday().getDayOfMonth()) {
+                dimSum.setBirthday(LocalDate.of(LocalDate.now().getYear() + 1, dimSum.getBirthday().getMonth(), dimSum.getBirthday().getDayOfMonth()));
+            } else {
+                dimSum.setBirthday(LocalDate.of(LocalDate.now().getYear(), dimSum.getBirthday().getMonth(), dimSum.getBirthday().getDayOfMonth()));
+            }
         } else {
+
             dimSum.setBirthday(LocalDate.of(LocalDate.now().getYear(), dimSum.getBirthday().getMonth(), dimSum.getBirthday().getDayOfMonth()));
         }
         long daysUntilBirthday = ChronoUnit.DAYS.between(LocalDate.now(), dimSum.getBirthday());
-        System.out.println("Noch " + daysUntilBirthday + " Tage bis zum nächsten Geburtstag!!!");
+        // Alter berechnen
+        long yearsOld = (daysfromBirthday * -1 + daysUntilBirthday) / 365;
+        System.out.println("Noch \u001B[35m" + daysUntilBirthday + "\u001B[0m Tage bis zum \u001B[31m" + yearsOld + "\u001B[0mten Geburtstag!!!");
 
 
     }

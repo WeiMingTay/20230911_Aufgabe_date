@@ -66,5 +66,19 @@ public class Main {
         Animal dimSum = new Animal("Dim Sum", LocalDate.of(2016, 4, 1));
 
         System.out.println(dimSum);
+
+        System.out.println("=== Wie lange bis zum nächsten Geburtstag? ===");
+        // Geburtstag in diesem Jahr gewesen?
+        if (LocalDate.now().getMonthValue() > dimSum.getBirthday().getMonthValue()) {
+            // System.out.println("Birthday already happened");
+            dimSum.setBirthday(LocalDate.of(LocalDate.now().getYear() + 1, dimSum.getBirthday().getMonth(), dimSum.getBirthday().getDayOfMonth()));
+
+        } else {
+            dimSum.setBirthday(LocalDate.of(LocalDate.now().getYear(), dimSum.getBirthday().getMonth(), dimSum.getBirthday().getDayOfMonth()));
+        }
+        long daysUntilBirthday = ChronoUnit.DAYS.between(LocalDate.now(), dimSum.getBirthday());
+        System.out.println("Noch " + daysUntilBirthday + " Tage bis zum nächsten Geburtstag!!!");
+
+
     }
 }

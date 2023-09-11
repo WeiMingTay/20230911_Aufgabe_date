@@ -49,3 +49,6 @@ Keine Zeitzonen angegeben
 2. Lege eine Instanz der Klasse Animal an.
 3. Gib auf der Kommandozeile aus, wie viele Tage es bis zum nächsten Geburtstag des Tieres sind
 ###### Achtung: Überlege, ob Du den Geburtstag mit oder ohne Zeitzone speichern solltest. Was ist sinnvoller?
+
+## Links
+[Handout neueFische](https://github.com/neuefische/ffm-java-23-1-handouts/tree/main/3-Ecosystem/06-Exceptions)
